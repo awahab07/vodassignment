@@ -1,18 +1,10 @@
 
 <div>
     <h3 class="center-text-align">Sky Movies</h3>
-      
+
     <div class="container">
         <div class="row row-centered">
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min"><div class="item"><div class="content"></div></div></div>
-            <div class="col-xs-6 col-centered col-min">;lsadf j;lsdafkl;dsjf;sadjklf;asdj;flsd;lkds jfkldsj;lkfdsjfj dsl;fjkd jfkdjfdk fjdkfjdk fjdkf jdkfjdk fjdkf</div>
+            <vod-asset ng-repeat="(index, record) in recordsWithCachedImages" cached-image-size="{{imageSize}}">450</vod-asset>
         </div>
     </div>
 </div>

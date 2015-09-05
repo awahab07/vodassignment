@@ -1,4 +1,4 @@
-$min-tile-width: 320px;
+$min-tile-width: 350px;
 
 
 /* centered columns styles */
@@ -51,7 +51,79 @@ body {
     text-align: center;
 }
 
-/* centering styles for jsbin */
+.vod-asset-card {
+  @extend .item;
+
+  img {
+    padding: 2px;
+  }
+}
+
+.text-shadow-dark-grey {
+  text-shadow: 2px 2px 9px #0e0e0e;
+}
+
+.vod-asset-card-info {
+  position: absolute;
+  top: 1px;
+  width: 95%;
+  height: 100%;
+  overflow: hidden;
+
+  $star-width: 21px;
+
+  .star-rating {
+    height: 17.5px;
+    width: 105px;
+    float: left;
+    background: url("../images/stars-sprite-blue-outline.png") no-repeat;
+  }
+
+  .star-rating-00 {  background-position-y: -($star-width*0);  }
+  .star-rating-01 {  background-position-y: -($star-width*1);  }
+  .star-rating-02 {  background-position-y: -($star-width*2);  }
+  .star-rating-03 {  background-position-y: -($star-width*3);  }
+  .star-rating-04 {  background-position-y: -($star-width*4);  }
+  .star-rating-05 {  background-position-y: -($star-width*5);  }
+
+  .year-tag {
+    float: right;
+    padding: 5px;
+    background: goldenrod;
+    font-family: fantasy;
+  }
+
+  .headline {
+    padding: 10px 5px;
+    color: #FBB95B;
+    line-height: 0;
+    clear: both;
+    @extend .text-shadow-dark-grey;
+  }
+
+  .genre-container {
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    font-family: monospace;
+    font-style: italic;
+    font-size: 10px;
+  }
+}
+
+/* for caching view */
+.image-stats {
+  .attribute {
+    font-size: 16px;
+  }
+
+  .value {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+/* centering */
 html,
 body {
     width:100%;

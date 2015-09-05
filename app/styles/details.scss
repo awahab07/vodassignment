@@ -1,0 +1,52 @@
+.movie-details {
+  .details {
+    .thumbnail {
+      float: left;
+    }
+
+    .movie-details-small-container {
+      padding-left: 22%;
+    }
+
+    $star-width: 21px;
+
+    .star-rating {
+      height: 17.5px;
+      width: 105px;
+      float: left;
+      background: url("../images/stars-sprite-blue-outline.png") no-repeat;
+    }
+
+    .star-rating-00 {  background-position-y: -($star-width*0);  }
+    .star-rating-01 {  background-position-y: -($star-width*1);  }
+    .star-rating-02 {  background-position-y: -($star-width*2);  }
+    .star-rating-03 {  background-position-y: -($star-width*3);  }
+    .star-rating-04 {  background-position-y: -($star-width*4);  }
+    .star-rating-05 {  background-position-y: -($star-width*5);  }
+
+    .summary {
+      display: inline-block;
+    }
+
+    .attr-name { font-weight: bold; font-style: italic;  }
+    .attr-value { font-family: sans-serif; font-size: small;  }
+
+    .genre-container { font-style: italic }
+
+    .story-container {
+      margin-top: 10px;
+      padding: 15px;
+    }
+
+    .story {
+      margin: 0.5em 0 0.75em;
+      line-height: 140%;
+      padding: 0;
+
+      font-family: Verdana, Arial, sans-serif;
+      color: #333;
+      font-size: 13px;
+    }
+  }
+
+}

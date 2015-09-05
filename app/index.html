@@ -21,11 +21,11 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      
+
     </div>
 
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
 
     <div class="footer">
@@ -51,8 +51,11 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/services/vod-assets.js"></script>
+        <script src="scripts/directives/vod-asset.js"></script>
+        <script src="scripts/controllers/movie-view.js"></script>
+        <script src="scripts/filters/prop-join.js"></script>
+        <script src="scripts/controllers/image-cache-view.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,46 @@
+<div class="container movie-details">
+  <div class="top-content">
+    <a href="{{record.url}}}">
+      <img src="{{topImageObj.src}}" class="img-responsive" />
+    </a>
+  </div>
+
+  <div class="details">
+    <div class="thumbnail">
+      <img src="{{record.keyArtImages[0].url}}" class="img-responsive img-thumbnail" />
+    </div>
+
+    <div class="movie-details-small-container">
+      <div class="movie-title">
+        <h3>{{record.headline}}</h3>
+      </div>
+
+      <div class="genre-container">{{record.genres.join(', ')}}</div>
+
+      <p class="star-rating {{record.starClass}}" title="{{record.rating}}"></p>
+
+      <div>
+        <p class="summary" ng-bind-html="record.synopsis"></p>
+      </div>
+
+      <div class="container movie-attributes">
+        <div class="row"><div class="col-md-3 attr-name">Directed By: </div> <div class="col-lg-6 attr-value">{{record.directors | propJoin:'name':', ' }}</div></div>
+        <div class="row"><div class="col-md-3 attr-name">Reviewed By: </div> <div class="col-lg-6 attr-value">{{record.reviewAuthor}}</div></div>
+        <div class="row"><div class="col-md-3 attr-name">Cast: </div> <div class="col-lg-6 attr-value">{{record.cast | propJoin:'name':', ' }}</div></div>
+        <div class="row"><div class="col-md-3 attr-name">Duration</div> <div class="col-lg-6 attr-value">{{durationMinutes}} minutes</div></div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+  </div>
+
+  <div class="story-container">
+    <h4>Story</h4>
+    <p class="story">{{record.body}}</p>
+  </div>
+
+  <div class="right">
+    <a href="#/titles"> <button class="btn btn-link btn-lg">back</button> </a>
+  </div>
+</div>
