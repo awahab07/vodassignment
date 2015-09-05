@@ -1,0 +1,20 @@
+<!--Layout of a single Vod Asset item-->
+
+<div class="col-xs-6 col-centered col-min">
+  <div class="vod-asset-card">
+
+    <a class="movie-link" ng-href="#/movie/{{record.id}}">
+      <!--Absolute Container-->
+      <div class="vod-asset-card-info">
+        <div class="star-rating {{record.starClass}}"
+             title="{{record.rating}}"></div>
+
+        <div class="year-tag">{{record.year}}</div>
+
+        <h4 class="headline"> {{record.headline}} </h4>
+
+        <div class="genre-container">{{record.genres.join(', ')}}</div>
+      </div>
+    </a>
+  </div>
+</div>

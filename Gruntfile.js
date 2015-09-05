@@ -146,6 +146,16 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      srcbuild: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '<%= yeoman.srcbuild %>/{,*/}*',
+            '!<%= yeoman.srcbuild %>/.git{,*/}*'
+          ]
+        }]
+      },
       server: '.tmp'
     },
 
@@ -166,6 +176,14 @@ module.exports = function (grunt) {
         }]
       },
       dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      },
+      srcbuild: {
         files: [{
           expand: true,
           cwd: '.tmp/styles/',
@@ -221,6 +239,11 @@ module.exports = function (grunt) {
         raw: 'Sass::Script::Number.precision = 10\n'
       },
       dist: {
+        options: {
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+        }
+      },
+      srcbuild: {
         options: {
           generatedImagesDir: '<%= yeoman.dist %>/images/generated'
         }
@@ -376,7 +399,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'data/*.*'
           ]
         }, {
           expand: true,
@@ -388,6 +412,33 @@ module.exports = function (grunt) {
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
+        }]
+      },
+      srcbuild: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.srcbuild %>',
+          src: [
+            '*.{ico,png,txt}',
+            '.htaccess',
+            '*.html',
+            'views/{,*/}*.html',
+            'images/{,*/}*.{webp}',
+            'styles/fonts/{,*/}*.*',
+            'data/*.*'
+          ]
+        }, {
+          expand: true,
+          cwd: '.tmp/images',
+          dest: '<%= yeoman.srcbuild %>/images',
+          src: ['generated/*']
+        }, {
+          expand: true,
+          cwd: '.',
+          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          dest: '<%= yeoman.srcbuild %>'
         }]
       },
       styles: {
@@ -408,6 +459,11 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
+        'imagemin',
+        'svgmin'
+      ],
+      srcbuild: [
+        'compass:srcbuild',
         'imagemin',
         'svgmin'
       ]
@@ -469,9 +525,27 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
+  grunt.registerTask('srcbuild', [
+    'clean:srcbuild',
+    'wiredep',
+    'useminPrepare',
+    'concurrent:srcbuild',
+    'autoprefixer',
+    //'concat',
+    'ngAnnotate',
+    'copy:srcbuild'//,
+    //'cdnify',
+    //'cssmin',
+    //'uglify',
+    //'filerev',
+    //'usemin',
+    //'htmlmin'
+  ]);
+
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
+    'srcbuild'
   ]);
 };
