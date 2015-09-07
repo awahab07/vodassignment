@@ -16,10 +16,11 @@ angular.module('vodAssignmentApp')
       $scope.nImagesCached = 0;
 
       if(!vodAssetsService.imagesCached()) {
-        var imageWidth =  $routeParams.width || defaultSizes.width,
-            imageHeight = $routeParams.height || defaultSizes.height,
-            tileWidth = $routeParams.tileWidth || defaultSizes.tileHeight,
-            tileHeight = $routeParams.tileHeight || defaultSizes.tileHeight;
+        // val | 0 => will parse strings and floats to integers
+        var imageWidth =  ( $routeParams.width | 0 ) || defaultSizes.width,
+            imageHeight = ( $routeParams.height | 0 ) || defaultSizes.height,
+            tileWidth = ( $routeParams.tileWidth | 0 ) || defaultSizes.tileHeight,
+            tileHeight = ( $routeParams.tileHeight | 0 ) || defaultSizes.tileHeight;
 
         vodAssetsService.loadRecords().then(function() {
 
@@ -29,11 +30,11 @@ angular.module('vodAssignmentApp')
             { w: tileWidth, h:tileHeight }
           );
 
-          cachePromise.then(function() {
-            // updating image count, need to be cached
-            $scope.nImagesToCache = vodAssetsService.imagesCount();
+          // updating image count, need to be cached
+          $scope.nImagesToCache = vodAssetsService.imagesCount();
 
-            // Inform user all images have been successfully cached
+          cachePromise.then(function() {
+            // @TODO: Inform user all images have been successfully cached
 
             // Redirecting to previous/list view
             $location.path($rootScope.pathBeforeCaching || '/titles');

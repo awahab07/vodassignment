@@ -13,7 +13,6 @@ angular.module('vodAssignmentApp')
     // Ensure images are cached
     if(!VodAssetsService.imagesCached()) {
       $rootScope.getImagesCachedIfNotCached();
-      return false;
     }
 
     var imageSize = VodAssetsService.getCachedSizes()[0] || null;
